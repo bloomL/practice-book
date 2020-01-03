@@ -18,4 +18,8 @@ public interface UserService {
     UserEntity saveWithoutRollBack(UserEntity userEntity);
 
     UserEntity save(UserEntity userEntity);
+
+    void remove(Long id);
+
+    UserEntity findOne(UserEntity userEntity);
 }

@@ -2,6 +2,7 @@ package com.practice.boot.controller;
 
 import com.practice.boot.entity.UserEntity;
 import com.practice.boot.service.UserService;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,6 +19,18 @@ public class UserController {
         UserEntity user = userService.save(new UserEntity(null,name,age,address));
         return user;
     }
+
+    @RequestMapping("/evict")
+    public String evict(Long id){
+        userService.remove(id);
+        return "ok";
+    }
+
+    @RequestMapping("/able")
+    public UserEntity able(UserEntity userEntity){
+        return userService.findOne(userEntity);
+    }
+
 
     @RequestMapping("/queryByAddress")
     public List<UserEntity> queryByAddress(String address){

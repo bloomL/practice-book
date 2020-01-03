@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface UserDao extends JpaRepository<UserEntity,Long> {
-    UserEntity save(UserEntity userEntity);
+    /*UserEntity save(UserEntity userEntity);*/
 
     //使用方法名查询
     List<UserEntity> findByAddress(String address);

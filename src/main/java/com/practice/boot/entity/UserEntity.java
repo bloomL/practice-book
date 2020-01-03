@@ -1,17 +1,20 @@
 package com.practice.boot.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.NamedQuery;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 @Entity
 @NamedQuery(name = "UserEntity.nameAndAddressNamedQuery",query = "select u from UserEntity u where u.name=?1 and u.address=?2")
 /*@Data
 @AllArgsConstructor
 @NoArgsConstructor*/
-public class UserEntity {
+public class UserEntity implements Serializable {
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue
     private Long id;
